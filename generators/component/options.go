@@ -12,6 +12,7 @@ const (
 var Styles = []Style{StyleCssMod, StyleScssMod, StyleStyledComponent, StyleEmotion}
 
 type Options struct {
-	Name  string
-	Style Style
+	Name          string
+	Style         Style
+	StyledPostfix string
 }

@@ -1,6 +1,7 @@
 package component
 
 import (
+	"context"
 	"embed"
 
 	"github.com/jcyamacho/rxgen/internal/tplutil"
@@ -17,11 +18,11 @@ var (
 	}
 )
 
-func Create(destinationDir string, opt *Options) error {
+func Create(ctx context.Context, destinationDir string, opt *Options) error {
 	templateRoot, ok := templateMap[opt.Style]
 	if !ok {
 		return &InvalidStyleError{opt.Style}
 	}
 
-	return tplutil.ExecuteFS(templates, templateRoot, destinationDir, opt)
+	return tplutil.ExecuteFS(ctx, templates, templateRoot, destinationDir, opt)
 }
