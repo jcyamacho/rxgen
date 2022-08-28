@@ -17,7 +17,10 @@ func init() {
 }
 
 var componentCmd = &cobra.Command{
-	Use:   "component <name>",
+	Use: "component <name>",
+	Aliases: []string{
+		"cmp",
+	},
 	Short: "Create React component",
 	Run: funcutil.Fatal2(func(cmd *cobra.Command, args []string) error {
 		name := args[0]
